@@ -1,0 +1,56 @@
+; id = {0x000001ed}, range = [0x0000000000014a93-0x0000000000014b56), name="invocation function for block in dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&) const", mangled="___ZNK5dyld46Loader25findAndRunAllInitializersERNS_12RuntimeStateE_block_invoke"
+; Source location: unknown
+1000E8A93: 55                         pushq  %rbp
+1000E8A94: 48 89 E5                   movq   %rsp, %rbp
+1000E8A97: 41 57                      pushq  %r15
+1000E8A99: 41 56                      pushq  %r14
+1000E8A9B: 41 54                      pushq  %r12
+1000E8A9D: 53                         pushq  %rbx
+1000E8A9E: 48 83 EC 70                subq   $0x70, %rsp
+1000E8AA2: 49 89 FC                   movq   %rdi, %r12
+1000E8AA5: 48 8B 47 28                movq   0x28(%rdi), %rax
+1000E8AA9: 4C 8B 7F 30                movq   0x30(%rdi), %r15
+1000E8AAD: 41 89 F6                   movl   %esi, %r14d
+1000E8AB0: 49 01 C6                   addq   %rax, %r14
+1000E8AB3: 49 8B 4F 08                movq   0x8(%r15), %rcx
+1000E8AB7: 80 B9 8F 00 00 00 00       cmpb   $0x0, 0x8f(%rcx)
+1000E8ABE: 74 26                      je     0x1000e8ae6  ; <+83>
+1000E8AC0: 49 8B 7C 24 20             movq   0x20(%r12), %rdi
+1000E8AC5: E8 6A D0 FF FF             callq  0x1000e5b34  ; dyld4::Loader::path() const
+1000E8ACA: 48 8D 35 FC AB 04 00       leaq   0x4abfc(%rip), %rsi  ; "running initializer %p in %s\n"
+1000E8AD1: 4C 89 FF                   movq   %r15, %rdi
+1000E8AD4: 4C 89 F2                   movq   %r14, %rdx
+1000E8AD7: 48 89 C1                   movq   %rax, %rcx
+1000E8ADA: 31 C0                      xorl   %eax, %eax
+1000E8ADC: E8 7F 60 FF FF             callq  0x1000deb60  ; dyld4::RuntimeState::log(char const*, ...) const
+1000E8AE1: 49 8B 44 24 28             movq   0x28(%r12), %rax
+1000E8AE6: 48 8D 9D 70 FF FF FF       leaq   -0x90(%rbp), %rbx
+1000E8AED: C7 03 00 00 07 1F          movl   $0x1f070000, (%rbx)  ; imm = 0x1F070000 
+1000E8AF3: 48 89 43 08                movq   %rax, 0x8(%rbx)
+1000E8AF7: 48 C7 43 10 00 00 00 00    movq   $0x0, 0x10(%rbx)
+1000E8AFF: 4C 89 73 18                movq   %r14, 0x18(%rbx)
+1000E8B03: 0F 57 C0                   xorps  %xmm0, %xmm0
+1000E8B06: 0F 11 43 20                movups %xmm0, 0x20(%rbx)
+1000E8B0A: 0F 11 43 30                movups %xmm0, 0x30(%rbx)
+1000E8B0E: 0F 11 43 40                movups %xmm0, 0x40(%rbx)
+1000E8B12: 0F 11 43 50                movups %xmm0, 0x50(%rbx)
+1000E8B16: 0F 11 43 60                movups %xmm0, 0x60(%rbx)
+1000E8B1A: 48 89 DF                   movq   %rbx, %rdi
+1000E8B1D: E8 26 CA FE FF             callq  0x1000d5548  ; dyld3::ScopedTimer::startTimer()
+1000E8B22: 48 89 DF                   movq   %rbx, %rdi
+1000E8B25: E8 52 CC FE FF             callq  0x1000d577c  ; dyld3::ScopedTimer::endTimer()
+1000E8B2A: 49 8B 44 24 30             movq   0x30(%r12), %rax
+1000E8B2F: 48 8B 48 08                movq   0x8(%rax), %rcx
+1000E8B33: 4C 8B 40 60                movq   0x60(%rax), %r8
+1000E8B37: 8B 79 40                   movl   0x40(%rcx), %edi
+1000E8B3A: 48 8B 71 48                movq   0x48(%rcx), %rsi
+1000E8B3E: 48 8B 51 50                movq   0x50(%rcx), %rdx
+1000E8B42: 48 8B 49 58                movq   0x58(%rcx), %rcx
+1000E8B46: 41 FF D6                   callq  *%r14
+1000E8B49: 48 83 C4 70                addq   $0x70, %rsp
+1000E8B4D: 5B                         popq   %rbx
+1000E8B4E: 41 5C                      popq   %r12
+1000E8B50: 41 5E                      popq   %r14
+1000E8B52: 41 5F                      popq   %r15
+1000E8B54: 5D                         popq   %rbp
+1000E8B55: C3                         retq   
